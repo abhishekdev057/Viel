@@ -14,7 +14,7 @@ const CURRENT_LOGO_FILE = path.join(process.cwd(), "data", "current_logo.json")
 
 // Helper function to get the current session
 async function getSession() {
-  const cookieStore = cookies()
+  const cookieStore = await  cookies()
   return getToken({
     req: { cookies: cookieStore } as any,
     secret: process.env.NEXTAUTH_SECRET,

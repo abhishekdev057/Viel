@@ -27,9 +27,10 @@ export async function POST(request: Request) {
     }
 
     // Check file size (2MB max)
-    if (file.size > 2 * 1024 * 1024) {
-      return NextResponse.json({ error: "File too large (max 2MB)" }, { status: 400 })
+    if (file.size > 10 * 1024 * 1024) {
+      return NextResponse.json({ error: "File too large (max 10MB)" }, { status: 400 });
     }
+    
 
     // Create unique filename
     const bytes = await file.arrayBuffer()
